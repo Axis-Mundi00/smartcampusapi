@@ -1,0 +1,8 @@
+com\smartcampus\api\SensorReading.class
+com\smartcampus\api\Sensor.class
+com\smartcampus\api\resources\RoomResource.class
+com\smartcampus\api\resources\SensorResource.class
+com\smartcampus\api\AppConfig.class
+com\smartcampus\api\Main.class
+com\smartcampus\api\Room.class
+com\smartcampus\api\resources\DiscoveryResource.class

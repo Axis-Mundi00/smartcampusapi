@@ -39,16 +39,16 @@ curl -X GET http://localhost:8080/api/v1/rooms
 
 2. Create a new room
 curl -X POST http://localhost:8080/api/v1/rooms \
-  -H "Content-Type: application/json" \
-  -d '{"id":"R101","name":"Lecture Hall","capacity":120}'
+-H "Content-Type: application/json" \
+-d '{"id":"R101","name":"Lecture Hall","capacity":120}'
 
 3. Get a specific room
 curl -X GET http://localhost:8080/api/v1/rooms/R101
 
 4. Create a new sensor
 curl -X POST http://localhost:8080/api/v1/sensors \
-  -H "Content-Type: application/json" \
-  -d '{"id":"S1","type":"temperature","roomId":"R101"}'
+-H "Content-Type: application/json" \
+-d '{"id":"S1","type":"temperature","roomId":"R101"}'
 
 5. Filter sensors by type
 curl -X GET "http://localhost:8080/api/v1/sensors?type=temperature"

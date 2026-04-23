@@ -178,5 +178,3 @@ Overall, the API demonstrates:
 - Consistent error handling
 - Lightweight logging
 
-The implementation is intentionally simple but covers all required concepts for the coursework.
-

@@ -33,7 +33,7 @@ http://localhost:8080/api/v1
 
 ## 3. Sample curl Commands
 
-### 1. Get all rooms
+1. Get all rooms
 
 curl -X GET http://localhost:8080/api/v1/rooms
 

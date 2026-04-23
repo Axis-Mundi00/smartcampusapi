@@ -7,7 +7,6 @@ This README contains:
 - Sample curl commands
 - Conceptual report section
 
-```markdown
 ## Part 1 – Setup & Discovery
 
 ### 1.1 Project Setup
@@ -29,11 +28,6 @@ This makes the API predictable and consistent.
 ### 1.3 Discovery Endpoint
 A simple discovery endpoint was implemented to confirm that the API is running and reachable.  
 It returns a basic JSON message to show that the server is active.
-
-Example response:
-{
-  "message": "Smart Campus API is running"
-}
 
 ---
 
@@ -83,8 +77,7 @@ The following endpoints were added for sensor management:
 
 - GET /api/v1/sensors – returns all sensors  
 - GET /api/v1/sensors/{id} – returns a specific sensor  
-- POST /api/v1/sensors – creates a new sensor  
-- DELETE /api/v1/sensors/{id} – deletes a sensor  
+- POST /api/v1/sensors – creates a new sensor    
 
 These endpoints provide basic CRUD functionality for sensors.
 
@@ -106,32 +99,9 @@ These checks help keep the API consistent and prevent invalid data.
 
 ---
 
-## Part 4 – Sub‑Resources
+## Part 4 – Error Handling & Logging
 
-### 4.1 Purpose of Sub‑Resources
-Sub‑resources were used to represent relationships between rooms and their sensors.  
-This keeps the API structure clear and avoids long, complicated URLs.
-
-### 4.2 Endpoints Implemented
-The following sub‑resource endpoints were added:
-
-- GET /api/v1/rooms/{id}/sensors – returns all sensors in a room  
-- POST /api/v1/rooms/{id}/sensors – adds a new sensor to a room  
-
-These endpoints make it easy to manage sensors directly through their parent room.
-
-### 4.3 Validation
-- A room must exist before adding a sensor to it.  
-- If a room has no sensors, the GET request returns an empty list.  
-- Invalid room IDs return a 404 error.
-
-This keeps the sub‑resource behaviour predictable and consistent.
-
----
-
-## Part 5 – Error Handling & Logging
-
-### 5.1 Error Handling
+### 4.1 Error Handling
 Basic error handling was added across the API to make responses consistent and easy to understand.  
 The main error cases covered include:
 
@@ -141,7 +111,7 @@ The main error cases covered include:
 
 These responses help clients understand what went wrong without exposing internal details.
 
-### 5.2 Error Response Format
+### 4.2 Error Response Format
 All error messages follow a simple JSON structure:
 
 {
@@ -150,24 +120,12 @@ All error messages follow a simple JSON structure:
 
 This keeps the API predictable and easy to test.
 
-### 5.3 Logging
-Basic console logging was added to track key actions such as:
-
-- Creating rooms and sensors  
-- Deleting resources  
-- Failed lookups  
-- Invalid requests  
-
-The logging is lightweight and suitable for a small coursework project.  
-It helps with debugging and makes it easier to follow what the API is doing during testing.
-
-```
 ---------------------------------------------------------------------------------------------------------------
 
 ## Conceptual Report
 
 ### Overview
-The Smart Campus API was designed as a small, lightweight RESTful service that demonstrates core concepts such as resources, sub‑resources, filtering, validation, and error handling.  
+The Smart Campus API was designed as a small, lightweight RESTful service that demonstrates core concepts such as resources, filtering, validation, and error handling.  
 The focus was on keeping the design simple, consistent, and easy to test while still meeting the coursework requirements.
 
 ### RESTful Design
@@ -187,14 +145,6 @@ Two main resources were used:
 Sensors are linked to rooms through a simple `roomId` field.  
 This keeps the data model easy to understand and avoids unnecessary complexity.
 
-### Sub‑Resources
-Sub‑resources were used to show relationships between rooms and sensors:
-
-- /rooms/{id}/sensors
-
-This makes the API more intuitive because clients can access sensors directly through their parent room.  
-It also avoids long or confusing URLs.
-
 ### Filtering
 A basic filtering feature was added:
 
@@ -206,7 +156,6 @@ The filtering is done in memory, which is acceptable for a small coursework proj
 ### Validation & Error Handling
 Validation was added to prevent invalid data, such as:
 - Duplicate IDs
-- Linking sensors to non‑existent rooms
 - Deleting rooms that still have sensors
 
 Consistent error messages help clients understand what went wrong.
